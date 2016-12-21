@@ -1,0 +1,32 @@
+.App {
+  /*margin: 1em;*/
+  text-align: center;
+
+
+}
+.main{
+  padding: 5em;
+  /*background-image: url('http://wallpaperstock.net/stripped-black-wallpapers_1933_1280x1024.jpg');*/
+  background-color: #79cce5;
+  height: 20em;
+  width: 20em;
+  border-radius: 30em;
+  opacity: 0.9;
+  color: white;
+}
+body{
+  background-image: url('http://www.amazingwallpaperz.com/wp-content/uploads/Scenic-Winter-High-Resolution-Wallpapers.jpg');
+  background-size: cover;
+  background-repeat: no-repeat
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+img{
+  border-radius: 5em;
+}
+input{
+  width: 30em;
+  display: block;
+}
