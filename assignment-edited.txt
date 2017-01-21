@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import axios from 'axios'
-import './App.css';
+let frontEnders =
+[{name: "Alex Thomas", username: "axtho24"},
+{name: "Huy Luong", username: "huyluong88"},
+{name: "Moa Bullon", username: "moabullon"},
+{name: "Eric Ransom", username: "eransom"}]
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      avatar: "loading...",
+      avatar: "",
       username: "",
       link: "",
       blog: "",
@@ -14,9 +16,11 @@ class App extends Component {
       status: ""
 
     }
-    console.log("in constructor")
-  }
-  componentDidMount(){
+    {/*if just showing info on the screen, then the properties above are not necessary*/}
+
+
+
+  componentDidMount(){ {/*on page load */}
     axios.get('https://api.github.com/users/huyluong88').then(response => this.setState({
       avatar: response.data.avatar_url,
       username: response.data.login,
@@ -38,13 +42,21 @@ class App extends Component {
       location: response.data.location,
       status: response.data.hireable
     }))
-
-
+}
+searchStudent(){
+  axios.get(`https://api.github.com/users/${student}`).then(response => this.setState({
+    avatar: response.data.avatar_url,
+    username: response.data.login,
+    link: response.data.html_url,
+    blog: response.data.blog,
+    location: response.data.location,
+    status: response.data.hireable
+}))
   }
   render() {
     return (
       <div className="App">
-          <div className ="main">
+          <div className="main">
           <img src={this.state.avatar} width="200" height="200"/><br/>
           {this.state.username}<br/>
           <a href={this.state.link}>Github</a><br/>
@@ -59,10 +71,16 @@ class App extends Component {
           />
           <button onClick={this.otherUser.bind(this)}>Git it!!</button>
           </div>
+          {/*optional*/}
+          {frontEnders.map(frontEnder=>{
+            return <button
+            onClick={this.searchStudent.bind(this, frontEnder.username)}> {/*has value bounded, bind can also take 2 arguments.*/}
+            {student.name}
+            </button>
+          })}
+
+
       </div>
     );
   }
 }
-
-
-export default App;
